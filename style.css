@@ -1,0 +1,44 @@
+#quizOpener
+{
+    display:inline;
+}
+
+#quizQuestion
+{
+    display:none;
+}
+
+#quizCorrect
+{
+    display:none;
+}
+
+#quizIncorrect
+{
+    display:none;
+}
+
+#quizHighScoreInput
+{
+    display:none;
+}
+
+#quizHighScoreList
+{
+    display:none;
+}
+
+#quizContent
+{
+    padding: 20px;
+    background-color: lightgrey;
+    border-radius: 10px;
+}
+
+.questionAnswerButton
+{
+    margin: 20px 0px;
+    padding: 10px;
+    font-size: larger;
+    border-radius: 5px;
+}

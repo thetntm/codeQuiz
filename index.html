@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap Link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--jQuery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Page Title-->
+    <title>Document</title>
+
+
+</head>
+<body>
+    <!--Main Container-->
+    <div class="container">
+        <!--Header Jumbotron-->
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron">
+                    <h1>Programming Quiz</h1>
+                    <p>Test your knowledge of programming with this quick and fun quiz!</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Main Content Row-->
+        <div class="row">
+            <!--Timer and Scores collumn-->
+            <div class="col-sm-3">
+
+                <h2>TIMER:</h2>
+                <h2>SCORE:</h2>
+
+            </div>
+
+            <!--Main Quiz Content collumn-->
+            <div class="col-sm-9">
+                <div id="quizContent">
+                    
+                    <!--quizOpener: Is visible on page load-->
+                    <span id="quizOpener">
+
+                        <h3>Welcome to the quiz! Click the button to start!</h3>
+
+                        <button id="quizStartButton">Start Quiz!</button>
+
+
+                    </span>
+
+                    <!--quizQuestion: Is visible when asking a question-->
+                    <span id="quizQuestion">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><span id="questionPrompt">Placeholder Text?</span></h3>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button class="btn-primary questionAnswerButton" id="button1">Placeholder Text</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn-primary questionAnswerButton" id="button2">Placeholder Text</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button class="btn-primary questionAnswerButton" id="button3">Placeholder Text</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn-primary questionAnswerButton" id="button4">Placeholder Text</button>
+                            </div>
+                        </div>
+
+                    </span>
+
+                    <!--quizCorrect: Is visible after correctly answering a question-->
+                    <span id="quizCorrect">
+
+                    </span>
+
+                    <!--quizIncorrect: is visible after incorrectly answering a question-->
+                    <span id="quizIncorrect">
+
+                    </span>
+                    
+                    <!--quizHighScoreInput: is visible when the user is inputing a new High Score-->
+                    <span id="quizHighScoreInput">
+
+                    </span>
+
+                    <!--quizHighScoreList: is visible when the user is looking at the high scores list-->
+                    <span id="quizHighScoreList">
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!--My Javascript-->
+
+    <script src="questions.js"></script>
+    <script src="quiz.js"></script>
+
+    <!--Bootstrap Javascript-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
