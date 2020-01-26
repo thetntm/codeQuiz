@@ -69,7 +69,7 @@ var questions =
     },
     //question 3
     {
-        prompt:"how do you convert x from a string to an int?",
+        prompt:"How do you convert x from a string to an int?",
         answers:[
             {
                 statement:"x = x.toInt()",
@@ -135,7 +135,7 @@ var questions =
     },
     //question 6
     {
-        prompt:"what happens if you call a function as the iterator of a for loop?",
+        prompt:"What happens if you call a function as the iterator of a for loop?",
         answers:[
             {
                 statement:"the function will run every loop",
@@ -157,14 +157,14 @@ var questions =
     },
     //question 7
     {
-        prompt:"if you define a function named inside inside a function named outside, and you call inside outside of outside by passing it on as outside's return value, can you use values defined inside outside inside inside?",
+        prompt:"If you define a function named inside inside a function named outside, and you call inside outside of outside by passing it on as outside's return value, can you use values defined inside outside inside inside?",
         answers:[
             {
                 statement:"yes, because the values are global",
                 isCorrect:false
             },
             {
-                statement:"No, because the values were defined outside inside",
+                statement:"No, and they wouldn't work even if you called inside inside outside",
                 isCorrect:false
             },
             {
@@ -176,6 +176,28 @@ var questions =
                 isCorrect:false
             }
         ]
-    }
+    },
+    //question 8
+    {
+        prompt:"Did you know that this quiz framework supports multiple correct answers?",
+        answers:[
+            {
+                statement:"I did not",
+                isCorrect:true
+            },
+            {
+                statement:"I did",
+                isCorrect:true
+            },
+            {
+                statement:"I do now",
+                isCorrect:true
+            },
+            {
+                statement:"No it doesn't",
+                isCorrect:false
+            }
+        ]
+    
 
 ]
