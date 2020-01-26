@@ -83,9 +83,11 @@ var timeBonusPoints = 10;
 
 var wrongAnswerPenalty = 10;
 
-var completionBonus = 10;
+var completionBonus = 5;
 
-var time_bonus_window = 4000;
+var time_bonus_window = 3000;//in milliseconds
+
+var time_given_per_question = 6;//in seconds
 
 //functions
 
@@ -271,7 +273,7 @@ startButton.click(
         //set the timer
         remaining_time = 0;
         for (let i = 0; i < questions.length; i++) {
-            remaining_time += 15;
+            remaining_time += time_given_per_question;
         }
         
 
