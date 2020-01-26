@@ -226,28 +226,33 @@ function removeTimeBonus() {time_bonus = false;}
 
 function addHighScore()
 {
+    
     const newScore = {initals:inputInitials.val().toUpperCase(),score:current_score}
-    const startingLength = highScores.length;
-    if (startingLength > 0)
+
+    function pushOntoExistingScores()
     {
-        for (let i = 0; i < startingLength; i++) {
+        for (let i = 0; i < highScores.length; i++) {
             if (parseInt(newScore.score) >= parseInt(highScores[i].score))
             {
                 highScores.splice(i,0,newScore);
-                break;
+                return true;
             }
         }
+        return false
+    }
+
+    if (pushOntoExistingScores())
+    {
         if (highScores.length > 3)
         {
             highScores.pop();
         }
+    } else
+    {
         if (highScores.length < 3)
         {
             highScores.push(newScore);
         }
-    } else
-    {
-        highScores.push(newScore);
     }
     localStorage.setItem("highScores",JSON.stringify(highScores));
 }
