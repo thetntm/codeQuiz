@@ -131,7 +131,7 @@ function updateHighScores()
     highScoreList.empty();
     for (let i = 0; i < highScores.length; i++) {
         const scoreObject = highScores[i];
-        highScoreList.append($("<li>" + scoreObject.initals + ": " + scoreObject.score + "</li>"));
+        highScoreList.append($("<li class='list-group-item'>" + scoreObject.initals + ": " + scoreObject.score + "</li>"));
     }
     
 }
@@ -226,14 +226,15 @@ function removeTimeBonus() {time_bonus = false;}
 
 function addHighScore()
 {
-    newScore = {initals:inputInitials.val().toUpperCase(),score:current_score}
+    const newScore = {initals:inputInitials.val().toUpperCase(),score:current_score}
     const startingLength = highScores.length;
     if (startingLength > 0)
     {
         for (let i = 0; i < startingLength; i++) {
-            if (current_score > highScores[i].score)
+            if (parseInt(newScore.score) >= parseInt(highScores[i].score))
             {
                 highScores.splice(i,0,newScore);
+                break;
             }
         }
         if (highScores.length > 3)
@@ -296,7 +297,10 @@ backToMainButton.click(
 )
 
 goToHighScoresButton.click(
-    function() {setQuizView(displayHighScoreList)}
+    function() {
+        updateHighScores();
+        setQuizView(displayHighScoreList)
+    }
 )
 
 submitScoreButton.click(function(){
