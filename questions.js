@@ -135,7 +135,7 @@ var questions =
     },
     //question 6
     {
-        prompt:"What happens if you call a function as the iterator of a for loop?",
+        prompt:"What happens if you call a function as a part of the iterator of a for loop?",
         answers:[
             {
                 statement:"the function will run every loop",
