@@ -81,13 +81,13 @@ var correctAnswerPoints = 15;
 
 var timeBonusPoints = 10;
 
-var wrongAnswerPenalty = 10;
+var wrongAnswerPenalty = 6;//in seconds
 
 var completionBonus = 5;
 
 var time_bonus_window = 3000;//in milliseconds
 
-var time_given_per_question = 6;//in seconds
+var time_given_per_question = 10;//in seconds
 
 //functions
 
@@ -194,6 +194,7 @@ function countDown()
     if (remaining_time<=0)
     {
         remaining_time = 0;
+        updateTimer();
 
         //Code for end of the game.
         clearInterval(timerInterval);
