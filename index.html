@@ -31,15 +31,15 @@
         <!--Main Content Row-->
         <div class="row">
             <!--Timer and Scores collumn-->
-            <div class="col-sm-3">
+            <div class="col-md-3">
 
-                <h2>TIMER:</h2>
-                <h2>SCORE:</h2>
+                <h2>TIMER: <span id="timer">00</span></h2>
+                <h2>SCORE: <span id="score">0000</span></h2>
 
             </div>
 
             <!--Main Quiz Content collumn-->
-            <div class="col-sm-9">
+            <div class="col-md-9">
                 <div id="quizContent">
                     
                     <!--quizOpener: Is visible on page load-->
@@ -61,19 +61,19 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <button class="btn-primary questionAnswerButton" id="button0">Placeholder Text</button>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <button class="btn-primary questionAnswerButton" id="button1">Placeholder Text</button>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <button class="btn-primary questionAnswerButton" id="button2">Placeholder Text</button>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-md-6">
                                 <button class="btn-primary questionAnswerButton" id="button3">Placeholder Text</button>
                             </div>
                         </div>
@@ -83,6 +83,8 @@
                     <!--quizCorrect: Is visible after correctly answering a question-->
                     <span id="quizCorrect">
                         <img src="Assets/checkMark.png" width="200px" height="200px">
+
+                        <p><span id="timeBonus"></span></p>
                     </span>
 
                     <!--quizIncorrect: is visible after incorrectly answering a question-->
@@ -92,7 +94,9 @@
                     
                     <!--quizHighScoreInput: is visible when the user is inputing a new High Score-->
                     <span id="quizHighScoreInput">
-
+                        <h3>
+                            <span id="endingCondition"></span>
+                        <h3>
                     </span>
 
                     <!--quizHighScoreList: is visible when the user is looking at the high scores list-->
