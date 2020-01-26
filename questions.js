@@ -3,19 +3,19 @@ var testQuestion = {
     answers:[
         {
             statement:"this one",
-            correctAnswer:true
+            isCorrect:true
         },
         {
             statement:"that one",
-            correctAnswer:false
+            isCorrect:false
         },
         {
             statement:"um",
-            correctAnswer:false
+            isCorrect:false
         },
         {
             statement:"I don't know",
-            correctAnswer:false
+            isCorrect:false
         }
     ]
 }
