@@ -264,6 +264,7 @@ function clearHighScores()
 startButton.click(
     function() {
         //set the timer
+        remaining_time = 0;
         for (let i = 0; i < questions.length; i++) {
             remaining_time += 15;
         }
