@@ -53,8 +53,6 @@ var remaining_time = 0;
 
 var time_bonus = true;
 
-var time_bonus_window = 1000;
-
 var currentQuestion = questions[0];
 
 var currentAnswers = questions[0].answers;
@@ -87,6 +85,7 @@ var wrongAnswerPenalty = 10;
 
 var completionBonus = 10;
 
+var time_bonus_window = 4000;
 
 //functions
 
