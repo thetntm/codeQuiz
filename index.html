@@ -34,7 +34,7 @@
             <div class="col-md-3">
 
                 <h2>TIMER: <span id="timer">00</span></h2>
-                <h2>SCORE: <span id="score">0000</span></h2>
+                <h2>SCORE: <span id="score">0</span></h2>
 
             </div>
 
@@ -45,36 +45,47 @@
                     <!--quizOpener: Is visible on page load-->
                     <span id="quizOpener">
 
-                        <h3>Welcome to the quiz! Click the button to start!</h3>
+                        <h3>Welcome to the quiz!</h3>
 
-                        <button id="quizStartButton">Start Quiz!</button>
-
+                        <div class="buttonGroup">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class = "btn-primary quizButton" id="quizStartButton">Start Quiz!</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="checkHighScores">View High Scores</button>
+                                </div>
+                            </div>
+                        </div>
 
                     </span>
 
                     <!--quizQuestion: Is visible when asking a question-->
                     <span id="quizQuestion">
+
                         <div class="row">
                             <div class="col-12">
                                 <h3><span id="questionPrompt">Placeholder Text?</span></h3>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn-primary questionAnswerButton" id="button0">Placeholder Text</button>
+                        <div class="buttonGroup">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="button0">Placeholder Text</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="button1">Placeholder Text</button>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <button class="btn-primary questionAnswerButton" id="button1">Placeholder Text</button>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button class="btn-primary questionAnswerButton" id="button2">Placeholder Text</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button class="btn-primary questionAnswerButton" id="button3">Placeholder Text</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="button2">Placeholder Text</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="button3">Placeholder Text</button>
+                                </div>
                             </div>
                         </div>
 
@@ -82,6 +93,7 @@
 
                     <!--quizCorrect: Is visible after correctly answering a question-->
                     <span id="quizCorrect">
+                        <p>You were Correct!</p>
                         <img src="Assets/checkMark.png" width="200px" height="200px">
 
                         <p><span id="timeBonus"></span></p>
@@ -89,18 +101,52 @@
 
                     <!--quizIncorrect: is visible after incorrectly answering a question-->
                     <span id="quizIncorrect">
+                        <p>Sorry, that's wrong!</p>
                         <img src="Assets/red-x.png">
+                        <p>Time Shortened!</p>
                     </span>
                     
                     <!--quizHighScoreInput: is visible when the user is inputing a new High Score-->
                     <span id="quizHighScoreInput">
-                        <h3>
-                            <span id="endingCondition"></span>
-                        <h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>
+                                    <span id="endingCondition"></span>
+                                <h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Final Score: <span id="finalScore"></span></h5>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="initials">Initials:</label>
+                                <input type="text" maxlength="3" name="initials" id="inputInitials">
+                                <button class="btn-primary" style="border-radius: 5px;" id="submitHighScore">Enter</button>
+                            </div>
+                        </div>
                     </span>
 
                     <!--quizHighScoreList: is visible when the user is looking at the high scores list-->
                     <span id="quizHighScoreList">
+                        <h3>High Scores:</h3>
+                        <div class="row">
+                            <div class="col-12">
+                                <ol id="topThreeScores" class="list_group_flush">
+                                </ol id="topThreeScores">
+                            </div>
+                        </div>
+
+                        <div class="buttonGroup">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button class = "btn-primary quizButton" id="backToMain">Return to Main Screen</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button class="btn-primary quizButton" id="clearHighScores">Clear High Scores</button>
+                                </div>
+                            </div>
+                        </div>
 
                     </span>
 

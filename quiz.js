@@ -1,5 +1,3 @@
-console.log(questions);
-
 //DOM Declarations: Displays for various stages of the game
 
 var displayOpener = $("#quizOpener");
@@ -20,13 +18,27 @@ var startButton = $("#quizStartButton");
 
 var answerButtons = [$("#button0"),$("#button1"),$("#button2"),$("#button3")];
 
+var inputInitials = $("#inputInitials");
+
+var submitScoreButton = $("#submitHighScore");
+
+var backToMainButton = $("#backToMain");
+
+var clearHighScoresButton = $("#clearHighScores");
+
+var goToHighScoresButton = $("#checkHighScores");
+
 //DOM Declarations: Output
+
+var highScoreList=$("#topThreeScores");
 
 var questionPrompt = $("#questionPrompt");
 
 var timer = $("#timer");
 
 var score = $("#score");
+
+var finalScore = $("#finalScore");
 
 var timeBonusMessage = $("#timeBonus");
 
@@ -46,6 +58,16 @@ var time_bonus_window = 1000;
 var currentQuestion = questions[0];
 
 var currentAnswers = questions[0].answers;
+
+var highScores = localStorage.getItem("highScores")
+
+if (!highScores)
+{
+    highScores = [];
+} else
+{
+    highScores=JSON.parse(highScores);
+}
 
 //Intervals and Timeouts
 
@@ -78,6 +100,7 @@ function updateQuestion()
 
         current_score += completionBonus;
         updateScore();
+        updateFinalScore();
 
         endCondition.text("You made it to the end! +" + completionBonus + " bonus points!");
         setQuizView(displayHighScoreInput);
@@ -100,6 +123,18 @@ function updateQuestion()
 function updateTimer() {timer.text(remaining_time);}
 
 function updateScore() {score.text(current_score);}
+
+function updateFinalScore() {finalScore.text(current_score);}
+
+function updateHighScores()
+{
+    highScoreList.empty();
+    for (let i = 0; i < highScores.length; i++) {
+        const scoreObject = highScores[i];
+        highScoreList.append($("<li>" + scoreObject.initals + ": " + scoreObject.score + "</li>"));
+    }
+    
+}
 
 //useful functions
 
@@ -125,7 +160,6 @@ function setQuizView(view)
 function answerClicked(event)
 {
     let index = parseInt(this.id.replace("button",""));
-    console.log(index);
     if (currentAnswers[index].isCorrect) {
         if (time_bonus) {
             current_score += 15;
@@ -167,6 +201,8 @@ function countDown()
 
         endCondition.text("Time ran out! Better luck next time!");
 
+        updateFinalScore();
+
         setQuizView(displayHighScoreInput);
     }
 }
@@ -187,6 +223,40 @@ function nextQuestion()
 }
 
 function removeTimeBonus() {time_bonus = false;}
+
+function addHighScore()
+{
+    newScore = {initals:inputInitials.val().toUpperCase(),score:current_score}
+    const startingLength = highScores.length;
+    if (startingLength > 0)
+    {
+        for (let i = 0; i < startingLength; i++) {
+            if (current_score > highScores[i].score)
+            {
+                highScores.splice(i,0,newScore);
+            }
+        }
+        if (highScores.length > 3)
+        {
+            highScores.pop();
+        }
+        if (highScores.length < 3)
+        {
+            highScores.push(newScore);
+        }
+    } else
+    {
+        highScores.push(newScore);
+    }
+    localStorage.setItem("highScores",JSON.stringify(highScores));
+}
+
+function clearHighScores()
+{
+    highScores = [];
+    localStorage.setItem("highScores","");
+    updateHighScores();
+}
 
 
 // Event Assignment
@@ -217,6 +287,23 @@ startButton.click(
         setQuizView(displayQuestion);
     }
 )
+
+clearHighScoresButton.click(clearHighScores);
+
+backToMainButton.click(
+    function() {setQuizView(displayOpener)}
+)
+
+goToHighScoresButton.click(
+    function() {setQuizView(displayHighScoreList)}
+)
+
+submitScoreButton.click(function(){
+    addHighScore();
+    updateHighScores();
+    setQuizView(displayHighScoreList);
+}
+);
 
 for (let i = 0; i < answerButtons.length; i++) {
     const b = answerButtons[i];
